@@ -3,6 +3,9 @@
 ## 📌 Project Overview
 This project transforms raw Titanic dataset records into a clear, multi-panel visual dashboard as part of the CodeAlpha Data Analytics Internship. It utilizes data visualization storytelling techniques to reveal multidimensional trends and insights regarding passenger demographics and survival outcomes.
 
+## 🖼️ Dashboard Preview
+![Titanic Data Visualization Dashboard](titanic_dashboard.png)
+
 ## 🛠️ Tools & Libraries Used
 - **Python**
 - **Pandas** - Data preparation and wrangling
