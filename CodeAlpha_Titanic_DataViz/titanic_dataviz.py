@@ -10,9 +10,15 @@ print("==========================================")
 print("TASK 3: DATA VISUALIZATION DASHBOARD")
 print("==========================================")
 
-# 1. Load & Prepare Data
-url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
-df = pd.read_csv(url)
+# 1. Load & Prepare Data (Supports local 'titanic.csv' or falls back to online URL)
+try:
+    df = pd.read_csv('titanic.csv')
+    print("Loaded dataset successfully from local file.")
+except FileNotFoundError:
+    url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
+    df = pd.read_csv(url)
+    print("Loaded dataset from online repository URL.")
+
 df['Age'] = df['Age'].fillna(df['Age'].median())
 
 # Set global plotting theme
@@ -62,5 +68,10 @@ axes[1, 1].set_ylabel('Density / Count')
 axes[1, 1].legend(title='Outcome', loc='upper right')
 
 plt.tight_layout(rect=[0, 0, 1, 0.93])
+
+# Save figure as an image so it can be previewed directly on GitHub
+plt.savefig('titanic_dashboard.png', dpi=300, bbox_inches='tight')
+print("\nDashboard chart saved as 'titanic_dashboard.png' successfully!")
+
 print("\nRendering visualization dashboard window...")
 plt.show()
